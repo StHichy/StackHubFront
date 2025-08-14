@@ -1,0 +1,243 @@
+        :root {
+            --primary: #04ff00;
+            --dark-bg: #0F0F0F;
+            --light-bg: #FFFFFF;
+            --text-dark: #212529;
+            --text-light: #F1F1F1;
+            --card-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .sidebars-container {
+            display: flex;
+            left: 0;
+            height: 100%;
+            position: fixed;
+            z-index: 1020;
+        }
+
+        .lil_sidebar {
+            width: 50px;
+            background-color: #1a1a1a;
+            border-right: 1px solid #2e2e2e;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lil_sidebar .icon {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .lil_sidebar .icon:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: #313131;
+            height: 100%;
+            border-right: 1px solid #646464;
+            border-radius: 0 25px 25px 0;
+        }
+
+        .sidebar .nav-item {
+            margin-bottom: 5px;
+        }
+
+        .sidebar .nav-link {
+            color: var(--text-light);
+            font-weight: 500;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .sidebar .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background-color: #2e2e2e;
+            color: var(--primary);
+            border-radius: 0;
+        }
+        
+        .main-content {
+            margin-left: 350px;
+            width: calc(100% - 350px);
+            padding: 30px;
+            height: 730px;
+        }
+
+        .card-container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .card {
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 40%;
+            height: 95%;
+            background-color: rgba(rgb(255, 255, 255), 0);
+            border: none;
+            position: relative;
+        }
+
+        .photo {
+            border-radius: 15px;
+            width: 100%;
+            height: 75%;
+            background-image: url(programdor.jpg);
+            background-size: 100% 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .card-photo {
+            border-radius: 15px;
+            box-shadow: 0px 0px 30px 1px rgba(0,0,0,0.75);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            height: 85%;
+            background: blue;
+            border: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-photo-half-1 {
+            border-radius: 15px 15px 0 0;
+            width: 100%;
+            height: 50%;
+            background: rgba(0, 0, 0, 0);
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .card-photo-half-2 {
+            border-radius: 0 0 15px 15px;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(102, 102, 102, 0.2) 81%, rgba(255, 255, 255, 0) 100%);
+            border: none;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+        }
+
+        .card-choose {
+            width: 100%;
+            height: 10%;
+            margin-top: auto;
+            background: blue;
+            border: solid;
+        }
+
+        
+
+        .choose-button{
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            
+        }
+        
+        .card-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .progress {
+            height: 8px;
+            margin: 20px 0;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        
+        .btn-custom {
+            background-color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-custom:hover {
+            background-color: #03cc00;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 992px) {
+            .card-container {
+                width: 90%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+            
+            .sidebars-container {
+                display: none;
+            }
+            
+            .card-container {
+                width: 100%;
+            }
+        }
