@@ -1,0 +1,166 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <title>Stack Hub</title>
+</head>
+<body>
+    <div class="sidebars-container">
+        <div class="lil_sidebar">
+            <div class="icon mt-4" title="Dashboard">
+                <img style="width: 50px;" src="imagens/StackHub (1).png" alt="">
+            </div>
+            <div class="icon" title="mensagem" id="conversa">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="icon" title="caixa de entrada">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="icon" title="Projetos">
+                <i class="fas fa-folder"></i>
+            </div>
+            <div class="icon" title="tarefas">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <div class="icon" title="Equipes">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="icon" title="Calendário">
+                <i class="fas fa-calendar"></i>
+            </div>
+            <div class="icon" title="Perfil" style="margin-top: auto;">
+                <i class="fas fa-circle-user"></i>
+            </div>
+            <div class="icon" title="Configurações">
+                <i class="fas fa-cog"></i>
+            </div>
+            <div class="icon" title="Configurações">
+                <i class="fas fa-question-circle"></i>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item nav-link d-flex">  
+                    <img src="imagens/perfil.jpg" class="rounded-circle ms-2" style="width: 35px;height: 35px;" alt="">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                        <h6 class="ms-2 mt-1">Abner</h6>
+                        <strong class="ms-2"><small style="color:white">🟢online</small></strong>
+                    </div>
+                </li>
+                <li class="nav-item nav-link d-flex">  
+                    <img src="imagens/perfil.jpg" class="rounded-circle ms-2" style="width: 35px;height: 35px;" alt="">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                        <h6 class="ms-2 mt-1">Diogo</h6>
+                        <strong class="ms-2"><small style="color:white">🟢online</small></strong>
+                    </div>
+                </li>
+                <li class="nav-item nav-link d-flex">  
+                    <img src="imagens/perfil.jpg" class="rounded-circle ms-2" style="width: 35px;height: 35px;" alt="">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                        <h6 class="ms-2 mt-1">Thiago</h6>
+                        <strong class="ms-2"><small style="color:white">🔴offline</small></strong>
+                    </div>
+                </li>                
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="chat-container">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%233366ff'/%3E%3C/svg%3E" alt="Diogo">
+                <div class="chat-header-info">
+                    <h5>Diogo Silva</h5>
+                    <div class="status">🟢 Online - Digitando...</div>
+                </div>
+                <div class="chat-header-actions">
+                    <i class="fas fa-phone-alt"></i>
+                    <i class="fas fa-video"></i>
+                    <i class="fas fa-info-circle"></i>
+                </div>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <div class="date-separator">
+                    <span>Hoje, 18 de Agosto</span>
+                </div>
+                
+                <!-- Receiver Message -->
+                <div class="message receiver">
+                    <div>Oi, como vai o progresso no projeto?</div>
+                    <div class="message-time">09:30</div>
+                </div>
+                
+                <!-- Sender Message -->
+                <div class="message sender">
+                    <div>Tudo certo por aqui! Terminei o módulo de autenticação.</div>
+                    <div class="message-time">09:32</div>
+                    <div class="message-status"><i class="fas fa-check-double"></i></div>
+                </div>
+                
+                <!-- Receiver Message -->
+                <div class="message receiver">
+                    <div>Ótimo! Você pode dar uma olhada na integração com o serviço de pagamento?</div>
+                    <div class="message-time">09:33</div>
+                </div>
+                
+                <!-- Sender Message -->
+                <div class="message sender">
+                    <div>Claro, já comecei a trabalhar nisso. Acho que até amanhã termino.</div>
+                    <div class="message-time">09:35</div>
+                    <div class="message-status"><i class="fas fa-check-double"></i></div>
+                </div>
+                
+                <!-- Receiver Message -->
+                <div class="message receiver">
+                    <div>Perfeito! Quando você acha que podemos marcar uma reunião com o cliente?</div>
+                    <div class="message-time">09:36</div>
+                </div>
+                
+                <!-- Sender Message -->
+                <div class="message sender">
+                    <div>Que tal quinta-feira? Estarei com tudo pronto até lá.</div>
+                    <div class="message-time">09:37</div>
+                    <div class="message-status"><i class="fas fa-check-double"></i></div>
+                </div>
+                
+                <!-- Receiver Message -->
+                <div class="message receiver">
+                    <div>Quinta-feira funciona para mim. Vou confirmar com o cliente e te aviso.</div>
+                    <div class="message-time">09:38</div>
+                </div>
+                
+                <!-- Sender Message -->
+                <div class="message sender">
+                    <div>Ótimo! Enviei o link do repositório atualizado no canal do projeto.</div>
+                    <div class="message-time">09:40</div>
+                    <div class="message-status"><i class="fas fa-check-double"></i></div>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="chat-input">
+                <div class="chat-input-actions">
+                    <i class="fas fa-plus-circle"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-image"></i>
+                </div>
+                <input type="text" id="messageInput" placeholder="Digite uma mensagem...">
+                <button id="sendMessageBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/chat.js"></script>
+</html>
