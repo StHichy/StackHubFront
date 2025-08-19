@@ -6,7 +6,8 @@
     <title>StackHub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/welcome.css">
+<link id="light-theme" rel="stylesheet" href="css/welcome-light.css">
+<link id="dark-theme" rel="stylesheet" href="css/welcome-dark.css" disabled>
 </head>
 <body>
     <!-- Header -->
@@ -368,6 +369,31 @@
         document.querySelectorAll('.step-card, .audience-card, .testimonial-card').forEach(card => {
             observer.observe(card);
         });
+        // Seleciona os links para os temas
+        const lightThemeLink = document.getElementById('light-theme');
+        const darkThemeLink = document.getElementById('dark-theme');
+
+        // Função para aplicar o tema correto
+        function applySystemTheme() {
+            // Verifica se o tema do sistema é escuro usando a media query
+            const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (isDarkMode) {
+                // Se for escuro, desabilita o tema claro e habilita o escuro
+                lightThemeLink.disabled = true;
+                darkThemeLink.disabled = false;
+            } else {
+                // Se for claro, habilita o tema claro e desabilita o escuro
+                lightThemeLink.disabled = false;
+                darkThemeLink.disabled = true;
+            }
+        }
+
+        // Chama a função para aplicar o tema quando a página carregar
+        applySystemTheme();
+
+        // Opcional: Adiciona um listener para mudar o tema caso o usuário altere as configurações do sistema enquanto a página está aberta
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
     </script>
 </body>
 </html>

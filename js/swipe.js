@@ -178,7 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             msg.classList.remove("show");
             centralMsg.classList.remove("show");
-            document.body.classList.remove('bg-dislike', 'bg-like', 'bg-superlike');
         }, 1500);
     }
 

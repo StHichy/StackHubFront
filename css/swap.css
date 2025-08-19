@@ -43,8 +43,8 @@ body {
 
 /* Estilos para cada estado */
 body.bg-dislike {
-  background: linear-gradient(
-    to right,
+  background: radial-gradient(
+    circle at center,
     #fbd367,
     #ff8400,
     #cc0000,
@@ -56,15 +56,15 @@ body.bg-dislike {
 }
 
 body.bg-like {
-  background: linear-gradient(
-    to right,
+  background: radial-gradient(
+    circle at center,
     #00ff9d,
     #00c9ff,
     #00ff9d,
     #00c9ff
   );
   background-size: 300% 100%;
-  animation: gradientLike 5s linear infinite;
+  animation: gradientLike 5s ease infinite;
   transition: background 2s ease;
 }
 
