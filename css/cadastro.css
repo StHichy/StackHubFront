@@ -273,4 +273,79 @@ body::before {
     .form-control {
         padding-left: 45px;
     }
+    /* Animações para transição entre páginas */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+.page-transition {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.slide-in-right {
+  animation-name: slideInRight;
+}
+
+.slide-in-left {
+  animation-name: slideInLeft;
+}
+
+.slide-out-right {
+  animation-name: slideOutRight;
+}
+
+.slide-out-left {
+  animation-name: slideOutLeft;
+}
+
+/* Para evitar transição brusca ao carregar a página */
+body {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+body.loaded {
+  opacity: 1;
+}
 }
