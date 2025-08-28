@@ -1,0 +1,27 @@
+.card {
+  background: linear-gradient(145deg, #454545, #717171);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.icon-container {
+  width: 60px;
+  height: 60px;
+}
+
+.alert-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.bg-gradient {
+  background: linear-gradient(145deg, #4a90e2, #9013fe);
+}
+
+.btn:hover {
+  background-color: #218838;
+}

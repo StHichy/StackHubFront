@@ -269,7 +269,7 @@ $(document).ready(function() {
 
         // AJAX login
         $.ajax({
-            url: 'http://localhost:8000/api/login',
+            url: 'http://127.0.0.1:8000/api/login',
             method: 'POST',
             contentType: 'application/json',
             dataType: 'json',
