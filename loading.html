@@ -107,10 +107,34 @@
   </div>
 
   <script>
-    // Simula um tempo de carregamento e redireciona para a página principal
+document.addEventListener('DOMContentLoaded', function() {
+    // Tempo de exibição da tela de loading
+    const delay = 2000; // 2 segundos
+
     setTimeout(() => {
-      window.location.href = 'swap.html'; // Altere para a página desejada após o loading
-    }, 3000); // 3 segundos de loading
+        const token = sessionStorage.getItem('authData');
+
+        if (!token) {
+            // Se não tiver token, volta para login
+            window.location.href = 'login.html';
+        } else {
+            // Se estiver logado, vai para a página principal
+            window.location.href = 'home.html'; // ou dashboard.html
+        }
+    }, delay);
+});
+
   </script>
+  <script>
+$(document).ready(function() {
+    const authDataString = sessionStorage.getItem('authData');
+
+    // Se o item não existir, significa que o usuário não está logado
+    if (!authDataString) {
+        // Redireciona imediatamente para a página de login
+        window.location.href = 'login.html';
+    }
+});
+</script>
 </body>
 </html>

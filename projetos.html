@@ -178,7 +178,17 @@
         </ul>
     </div>
 </div>
+<script>
+$(document).ready(function() {
+    const authDataString = sessionStorage.getItem('authData');
 
+    // Se o item não existir, significa que o usuário não está logado
+    if (!authDataString) {
+        // Redireciona imediatamente para a página de login
+        window.location.href = 'login.html';
+    }
+});
+</script>
 
    
         

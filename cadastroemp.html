@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalize o seu cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      /* Adicione este CSS no bloco <style> */
+.back-link {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #fff;
+    font-size: 2.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    z-index: 10;
+}
+
+.back-link:hover {
+    color: #1ab617;
+    transform: translateX(-5px);
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hanken Grotesk', sans-serif;
+            background: linear-gradient(135deg, #0a3d1d, #1a1a1a);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 15px;
+        }
+
+
+        .container {
+            background: linear-gradient(to bottom, rgba(26, 182, 23, 0.1), rgba(42, 42, 42, 0.95));
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            gap: 30px;
+            width: 100%;
+            width: 960px;
+            height: 600px;
+            border: 2.5px solid rgba(43, 255, 0, 0.363);
+            background-color: rgba(80, 68, 170, 0.05);
+        }
+
+        .container-cadastro {
+            border-radius: 30px;
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 38px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-container {
+            flex: 1;
+        }
+
+        .form-container input {
+            border-radius: 0px 25px 25px 0px;
+        }
+
+        .form-container input[type="file"] {
+            padding: 8px;
+        }
+
+        .form-container input,
+        .form-container select,
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #1ab617, #1e871c);
+            height: 55px;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #1e871c, #1ab617);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .profile-container {
+            flex: 1;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            color: white;
+            margin-top: 20px;
+        }
+
+
+        .file-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: rgb(73, 181, 59);
+        }
+
+        .file-input-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .file-input {
+            padding-right: 30px;
+            margin: auto;
+        }
+
+        .remove-file-btn {
+            position: absolute;
+            top: 47%;
+
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #da1c1c;
+            right: 15px;
+            margin-top: 3px;
+        }
+
+        .remove-file-btn:hover {
+            color: #f00;
+        }
+
+        .container-cadastro {
+    flex: 1;
+    overflow-y: auto;     /* Permite rolagem vertical */
+    max-height: 85%;     /* Garante que respeite a altura do pai */
+    padding-right: 10px;  /* Espaço para não cortar a scroll bar */
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;
+}
+
+.nome-cnpj-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            width: 100%;
+  padding: 10px 12px 10px 28px; /* espaço para o símbolo */
+  border: 1.5px solid #cbd5e1;
+  border-radius: 0px 18px 18px 0px;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+  transition: border-color 0.3s ease;
+            resize: vertical;
+            max-height: 80px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+      .input-with-symbol {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.input-with-symbol i {
+    position: absolute;
+    left: 12px;           /* distância da borda esquerda */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #45dd13;
+    pointer-events: none;
+}
+
+.input-with-symbol input {
+    width: 100%;
+    padding: 10px 12px 10px 40px; /* <-- padding-left aumentado para não sobrepor o ícone */
+    border: 1.5px solid #cbd5e1;
+    border-radius: 0px 18px 18px 0px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-with-symbol input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}
+
+.input-with-symbol input::placeholder {
+    color: #999;
+    font-style: italic;
+    font-weight: 600;
+}
+
+input::placeholder {
+  color: #999;         
+  font-style: italic;   
+  font-weight: 600;    
+  padding-left: 10px;
+  opacity: 1;          
+}
+textarea::placeholder {
+  color: #999;         
+  font-style: italic;   
+  font-weight: 600;    
+  padding-left: 10px;
+  opacity: 1;          
+}
+
+
+    </style>
+</head>
+
+<body>
+    <a href="slccategoria.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="container">
+        <h1>Finalize o seu cadastro</h1>
+        <div class="container-cadastro">
+            <div class="form-container">
+                <form id="form-empresa" enctype="multipart/form-data">
+                    <div class="input-with-symbol">
+                        <input type="email" name="email" placeholder="E-mail" required />
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="input-with-symbol">
+                        <input type="text" name="name" placeholder="Nome" required />
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="nome-cnpj-container">
+                        <div class="input-with-symbol">
+                            <input type="text" name="cep" placeholder="CEP" required />
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div class="input-with-symbol">
+                            <input type="text" name="telefone" placeholder="Telefone" required />
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                    </div>
+                    <div class="nome-cnpj-container">
+                        <div class="input-with-symbol">
+                            <input type="text" name="estado" placeholder="Estado" required />
+                        </div>
+                        <div class="input-with-symbol">
+                            <input type="text" name="cidade" placeholder="Cidade" required />
+                        </div>
+                        <div class="input-with-symbol">
+                            <input type="text" name="bairro" placeholder="Bairro" required />
+                        </div>
+                        <div class="input-with-symbol">
+                            <input type="text" name="rua" placeholder="Rua" required />
+                        </div>
+                    </div>
+                    <div class="input-with-symbol">
+                        <input type="text" name="cpf_cnpj" placeholder="CPF ou CNPJ" required />
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <div class="input-with-symbol">
+                        <input type="text" name="area_de_atuacao" placeholder="Área de Atuação" required />
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <textarea name="biografia" placeholder="Biografia" rows="4" required></textarea>
+
+                    <div class="file-container">
+                        <label for="file">Foto de perfil</label>
+                        <div class="file-input-container">
+                            <input type="file" id="file" name="foto" class="file-input" />
+                            <button type="button" class="remove-file-btn" id="remove-file">×</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Finalizar Cadastro</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="js/cadastroemp.js"></script>
+</body>
+
+</html>

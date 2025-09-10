@@ -156,4 +156,17 @@
     <div id="swipeMessage" class="swipe-message"></div>
 </body>
 <script src="js/swipe.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    const authDataString = sessionStorage.getItem('authData');
+
+    // Se o item não existir, significa que o usuário não está logado
+    if (!authDataString) {
+        // Redireciona imediatamente para a página de login
+        window.location.href = 'login.html';
+    }
+});
+</script>
 </html>

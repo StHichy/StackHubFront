@@ -36,9 +36,14 @@
             <div class="icon" title="Calendário">
                 <i class="fas fa-calendar"></i>
             </div>
-            <div class="icon" title="Perfil" style="margin-top: auto;">
-                <i class="fas fa-circle-user"></i>
+            <div class="icon dropdown" title="Perfil" style="margin-top: auto;">
+                <i class="fas fa-circle-user" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="editar.html">Editar</a></li>
+                        <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                    </ul>
             </div>
+
             <div class="icon" title="Configurações">
                 <i class="fas fa-cog"></i>
             </div>
@@ -87,7 +92,26 @@
 
 
 
-    </div>
-</body>
+
 <script src="js/sidebar.js"></script>
-</html>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+           $("#logoutBtn").on("click", function (e) {
+    e.preventDefault();
+
+    apiRequest('http://127.0.0.1:8000/api/logout', 'POST')
+        .done(function(response) {
+            // Remove token do storage
+            sessionStorage.removeItem('jwt');
+
+            // Redireciona para loading.html
+            window.location.href = 'loading.html';
+        })
+        .fail(function() {
+            sessionStorage.removeItem('jwt');
+            window.location.href = 'loading.html';
+        });
+});
+</script>
+
+

@@ -276,11 +276,18 @@ $(document).ready(function() {
             data: JSON.stringify({ email, password }),
             success: function(response) {
                 if (response.access_token) {
-                    sessionStorage.setItem('jwt', response.access_token);
+                    // 1. Salva os dados de autenticação ANTES de qualquer redirecionamento
+                    const authData = {
+                        token: response.access_token,
+                        userId: response.user_id,
+                        validoAte: response.valido_ate
+                    };
+                    sessionStorage.setItem('authData', JSON.stringify(authData));
                     
-                    // Alert personalizado de sucesso
+                    // 2. Mostra o alerta de sucesso
                     showAlert('success', 'Sucesso!', 'Login realizado com sucesso!', false, 2000);
-                    
+
+                    // 3. Redireciona APÓS o alerta sumir
                     setTimeout(() => {
                         window.location.href = 'loading.html';
                     }, 2000);
