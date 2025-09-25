@@ -1,16 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
+
     // --- toggle portfólio ---
     const toggleBtn = document.getElementById("togglePortfolio");
     const closeBtn = document.getElementById("closePortfolio");
     const portfolioCard = document.querySelector(".portfolio-card");
+    const cardPrincipal = document.querySelector(".card-principal");
+
+    closeBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // não é estritamente necessário aqui, mas mantém seguro
+        portfolioCard.hidden = true;
+        cardPrincipal.hidden = false;
+    });
 
     toggleBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        portfolioCard.toggleAttribute("hidden");
-    });
-    closeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        portfolioCard.toggleAttribute("hidden");
+        e.stopPropagation(); // mantém apenas no toggle
+        portfolioCard.hidden = !portfolioCard.hidden;
+
+        if (window.innerWidth < 1025) {
+            cardPrincipal.hidden = !portfolioCard.hidden;
+        }
     });
 
     const conversaBtn = document.getElementById("conversa");
@@ -57,7 +65,24 @@ document.addEventListener("DOMContentLoaded", () => {
         currentY = clientY - startY;
         const rot = currentX * ROTATION_FACTOR;
         card.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${rot}deg)`;
+
+        // sombra dinâmica
+        const threshold = card.offsetWidth * 0.25;
+        if (currentX > threshold / 2) {
+            // LIKE → verde
+            card.style.boxShadow = "0px 0px 50px 1px rgba(0,255,0,0.6)";
+        } else if (currentX < -threshold / 2) {
+            // DISLIKE → vermelho
+            card.style.boxShadow = "0px 0px 50px 1px rgba(255,0,0,0.6)";
+        } else if (currentY < -threshold / 2) {
+            // SUPERLIKE → roxo
+            card.style.boxShadow = "0px 0px 50px 1px rgba(255,0,255,0.6)";
+        } else {
+            // neutro
+            card.style.boxShadow = "";
+        }
     };
+
 
     const dispatchSwipeEvent = (dir) => {
         const ev = new CustomEvent("cardswipe", { detail: { direction: dir } });
@@ -90,10 +115,13 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => resetCard(), EXIT_DURATION);
     };
 
-    const pointerUp = () => {
+    const pointerUp = (e) => {
         if (!dragging) return;
         dragging = false;
         card.classList.remove("swiping");
+
+        // reseta sombra
+        card.style.boxShadow = "";
 
         const threshold = card.offsetWidth * 0.25;
         const absX = Math.abs(currentX);
@@ -112,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Pointer Events
     card.addEventListener("pointerdown", (e) => {
-        card.setPointerCapture(e.pointerId);
         pointerDown(e.clientX, e.clientY);
     });
     card.addEventListener("pointermove", (e) => pointerMove(e.clientX, e.clientY));
@@ -192,4 +219,27 @@ document.addEventListener("DOMContentLoaded", () => {
         profileIndex = (profileIndex + 1) % profiles.length;
         loadProfile(profileIndex);
     });
+});
+
+const cardPhoto = document.querySelector(".card-photo");
+
+document.querySelector(".like").addEventListener("mouseenter", () => {
+  cardPhoto.style.boxShadow = "0px 0px 50px 1px rgba(0,255,0,0.6)";
+});
+document.querySelector(".like").addEventListener("mouseleave", () => {
+  cardPhoto.style.boxShadow = "";
+});
+
+document.querySelector(".dislike").addEventListener("mouseenter", () => {
+  cardPhoto.style.boxShadow = "0px 0px 50px 1px rgba(255, 0, 0, 0.6)";
+});
+document.querySelector(".dislike").addEventListener("mouseleave", () => {
+  cardPhoto.style.boxShadow = "";
+});
+
+document.querySelector(".super-like").addEventListener("mouseenter", () => {
+  cardPhoto.style.boxShadow = "0px 0px 50px 1px rgba(255, 0, 255, 0.6)";
+});
+document.querySelector(".super-like").addEventListener("mouseleave", () => {
+  cardPhoto.style.boxShadow = "";
 });

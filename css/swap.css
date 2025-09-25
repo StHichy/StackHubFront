@@ -14,88 +14,12 @@
 
 body {
     font-family: 'Hanken Grotesk', serif;
-    background-color: var(--light-bg);
+    background: linear-gradient(135deg, #0a3d1d, #1a1a1a);
     color: var(--text-dark);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-}
-
-/* Classes para cores de fundo */
-/* Animações de fundo */
-@keyframes gradientDislike {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes gradientLike {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
-
-@keyframes superlikePulse {
-  0% { background-size: 100% 100%; }
-  50% { background-size: 150% 150%; }
-  100% { background-size: 100% 100%; }
-}
-
-/* Estilos para cada estado */
-body.bg-dislike {
-  background: radial-gradient(
-    circle at center,
-    #fbd367,
-    #ff8400,
-    #cc0000,
-    #ff4d4d
-  );
-  background-size: 300% 300%;
-  animation: gradientDislike 4s ease infinite;
-  transition: background 2s ease;
-}
-
-body.bg-like {
-  background: radial-gradient(
-    circle at center,
-    #00ff9d,
-    #00c9ff,
-    #00ff9d,
-    #00c9ff
-  );
-  background-size: 300% 100%;
-  animation: gradientLike 5s ease infinite;
-  transition: background 2s ease;
-}
-
-body.bg-superlike {
-  background: radial-gradient(
-    circle at center,
-    #ed99ed,
-    #ff00ff,
-    #bd00ff,
-    #8a2be2
-  );
-  background-size: 100% 100%;
-  animation: superlikePulse 3s ease-in-out infinite;
-  transition: background 2s ease;
-}
-
-/* Efeito adicional para todos os estados */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at center,
-    transparent 10%,
-    rgba(255,255,255,0.1) 100%
-  );
-  pointer-events: none;
-  z-index: -1;
 }
 
 .sidebars-container {
@@ -274,14 +198,14 @@ body::before {
     margin-top: auto;
     background-color: #2e2e2e;
     border-radius:40%;
-    border-top: solid 2px;
-    border-bottom: solid 2px;
     border-color: rgb(0, 0, 0);
     box-shadow: 0px 0px 30px 1px rgba(0,0,0,0.75);
 }
 
 .portfolio-card {
+    
     min-width: 400px;
+    max-width: 450px;
     background-color: black;
     color: white;
     padding: 20px;
@@ -293,6 +217,34 @@ body::before {
     width: 85px;
     height: 85px;
     border-radius: 50%;
+}
+
+.like,
+.dislike,
+.super-like {
+    transition: all 0.3s ease;
+}
+
+.like:hover{
+    box-shadow: 0px 0px 30px 1px rgba(60, 245, 4, 0.75);
+    background-color: #04ff00;
+    width: 100px;
+    height: 100px;
+}
+
+.dislike:hover{
+    box-shadow: 0px 0px 30px 1px rgba(245, 4, 4, 0.75);
+    background-color: #ff0000;
+    width: 100px;
+    height: 100px;
+
+}
+
+.super-like:hover{
+    box-shadow: 0px 0px 30px 1px rgba(217, 4, 245, 0.75);
+    background-color: #ae00ff;
+    width: 100px;
+    height: 100px;
 }
 
 .more-button{
@@ -361,16 +313,20 @@ body::before {
     color:white;
     width: 100%;
     height: 50%;
-    background-color: rgb(180,180,180);
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid;
+    border-color: #F1F1F1;
+    border-radius: 25px;
 }
 
 .infos{
     color:white;
-    width: 30%;
-    height: 50px;
-    background-color: rgb(180,180,180);
-    border-radius: 10px;
+    font-size: 20px;
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid;
+    border-color: #F1F1F1;
+    border-radius: 20px;
 }
 
 .swipe-message {
@@ -400,6 +356,10 @@ body::before {
 }
 .swipe-message.superlike {
     background-color: rgba(0, 150, 255, 0.8);
+}
+
+.like:hover{
+    color: #04ff00;
 }
 
 /* Adicione ao final do CSS */

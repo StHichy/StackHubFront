@@ -36,8 +36,12 @@
             <div class="icon" title="Calendário">
                 <i class="fas fa-calendar"></i>
             </div>
-            <div class="icon" title="Perfil" style="margin-top: auto;">
-                <i class="fas fa-circle-user"></i>
+            <div class="icon dropdown" title="Perfil" style="margin-top: auto;">
+                <i class="fas fa-circle-user" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="profileDropdown">
+                    <li><a class="dropdown-item" href="editar.html">Editar</a></li>
+                    <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                </ul>
             </div>
             <div class="icon" title="Configurações">
                 <i class="fas fa-cog"></i>
@@ -84,7 +88,7 @@
 
     <div class="main-content d-flex justify-content-center align-items-center">
         <!-- Card principal -->
-        <div class="card">
+        <div class="card card-principal">
             <div class="card-photo" id="swipeCard" style="margin-left: auto;margin-right: auto;">
                 <div class="photo"></div>
                 <div class="card-photo-half-1 d-flex justify-content-end">
@@ -94,7 +98,7 @@
                 </div>
 
                 <div class="card-photo-half-2">
-                    <div style="height: 30%;"></div>
+                    <div style="height: 18%;"></div>
                     <div>
                         <div class="ms-2">
                             <i class="fa-solid fa-circle" style="font-size: 10px;color: rgb(0, 208, 0);"></i>
@@ -105,23 +109,37 @@
                             <strong><small style="color:white">junior</small></strong>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <div class="profisao ms-2 me-2"><h2 class="text-center">Dev Java</h2></div>
+                            <div class="profisao ms-2 me-2"><h2 class="text-center">Dev Java</div>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="infos mt-2 ms-2 me-2 d-flex align-items-center">
-                                <i class="fa-solid fa-tag fa-2xl ms-2"></i>
-                                <h2 class="text-center ms-1" style="font-size: 18px;">10 projetos finalizados</h2>
+
+
+                        <div class="d-flex">
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="infos ms-2 me-2"><h2 class="text-center"><p style="font-size: 22px;" class="mt-1 ms-2 me-2">Html 5</p></div>
                             </div>
-                            <div class="infos mt-2 ms-2 me-2 d-flex justify-content-center align-items-center">
-                                <i class="fa-solid fa-star" style="color: yellow;"></i>
-                                <i class="fa-solid fa-star ms-1" style="color: yellow;"></i>
-                                <i class="fa-solid fa-star ms-1" style="color: yellow;"></i>
-                                <i class="fa-regular fa-star ms-1" style="color: yellow;"></i>
-                                <i class="fa-regular fa-star ms-1" style="color: yellow;"></i>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="infos me-2"><h2 class="text-center"><p style="font-size: 22px;" class="mt-1 ms-2 me-2">Javascript</p></div>
                             </div>
-                            <div class="infos mt-2 ms-2 me-2 d-flex align-items-center">
-                                <i class="fa-solid fa-chart-simple fa-2xl ms-2"></i>
-                                <h2 class="text-center ms-1" style="font-size: 18px;">42 análises</h2>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="infos me-2"><h2 class="text-center"><p style="font-size: 22px;" class="mt-1 ms-2 me-2">Css</p></div>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="infos ms-2 me-2" style="border:none"><h2 class="text-center"><p style="font-size: 22px;" class="mt-1 ms-2 me-2">58 avaliações</p></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="me-2"><h2 class="text-center">
+                                    <p style="font-size: 22px;" class="mt-1 ms-2 me-2">
+                                        <i class="fa-solid fa-star" style="color: yellow;"></i>
+                                        <i class="fa-solid fa-star" style="color: yellow;"></i>
+                                        <i class="fa-solid fa-star" style="color: yellow;"></i>
+                                        <i class="fa-solid fa-star" style="color: yellow;"></i>
+                                        <i class="fa-solid fa-star-half-stroke" style="color: yellow;"></i>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -130,14 +148,14 @@
 
             <!-- Botões de escolha -->
             <div class="card-choose d-flex align-items-center justify-content-between" style="margin-left: auto;margin-right: auto;">
-                <button class="btn btn-dark choose-button" data-action="dislike">   
-                    <i class="fa-solid fa-xmark" style="font-size: 40px;color: #ff6868;"></i>
+                <button class="btn btn-dark choose-button dislike" data-action="dislike">   
+                    <i class="fa-solid fa-xmark" style="font-size: 40px;color: #ffffff;"></i>
                 </button>
-                <button class="btn btn-dark choose-button" data-action="superlike">
-                    <i class="fa-solid fa-heart" style="font-size: 40px;color: #ea60ff;"></i>
+                <button class="btn btn-dark choose-button super-like" data-action="superlike">
+                    <i class="fa-solid fa-heart" style="font-size: 40px;color: #ffffff;"></i>
                 </button>
-                <button class="btn btn-dark choose-button" data-action="like">
-                    <i class="fa-solid fa-thumbs-up" style="font-size: 40px;color: #6ffffa;"></i>
+                <button class="btn btn-dark choose-button like" data-action="like">
+                    <i class="fa-solid fa-thumbs-up" style="font-size: 40px;color: #ffffff;"></i>
                 </button>
             </div>
         </div>
@@ -156,17 +174,9 @@
     <div id="swipeMessage" class="swipe-message"></div>
 </body>
 <script src="js/swipe.js"></script>
+
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-<script>
-$(document).ready(function() {
-    const authDataString = sessionStorage.getItem('authData');
-
-    // Se o item não existir, significa que o usuário não está logado
-    if (!authDataString) {
-        // Redireciona imediatamente para a página de login
-        window.location.href = 'login.html';
-    }
-});
-</script>
+<script src="js/middleware.js"></script>
+<script src="js/logout.js"></script>
 </html>

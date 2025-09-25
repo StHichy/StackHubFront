@@ -276,7 +276,14 @@ $(document).ready(function() {
             data: JSON.stringify({ email, password }),
             success: function(response) {
                 if (response.access_token) {
-                    // 1. Salva os dados de autenticação ANTES de qualquer redirecionamento
+                    // 1. Salva os dados de autenticação em cookie
+                    const maxAge = 3600; // tempo de vida do cookie em segundos (1 hora)
+
+                    document.cookie = "token=" + response.access_token + "; path=/; max-age=" + maxAge;
+                    document.cookie = "user_id=" + response.user_id + "; path=/; max-age=" + maxAge;
+                    document.cookie = "valido_ate=" + response.valido_ate + "; path=/; max-age=" + maxAge;
+
+                    // (Opcional) Ainda salva no sessionStorage, se desejar
                     const authData = {
                         token: response.access_token,
                         userId: response.user_id,
@@ -287,12 +294,13 @@ $(document).ready(function() {
                     // 2. Mostra o alerta de sucesso
                     showAlert('success', 'Sucesso!', 'Login realizado com sucesso!', false, 2000);
 
-                    // 3. Redireciona APÓS o alerta sumir
+                    // 3. Redireciona após o alerta sumir
                     setTimeout(() => {
                         window.location.href = 'loading.html';
                     }, 2000);
                 }
             },
+
             error: function(xhr) {
                 const res = xhr.responseJSON;
                 if (xhr.status === 403) {

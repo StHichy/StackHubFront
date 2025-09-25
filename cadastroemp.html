@@ -198,6 +198,27 @@
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
+        .input-with-symbol select {
+    width: 100%;
+    padding: 10px 12px 10px 40px; /* espaço para o ícone */
+    border: 1.5px solid #cbd5e1;
+    border-radius: 0px 18px 18px 0px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: white;
+    appearance: none; /* remove seta padrão (pode adicionar uma custom depois se quiser) */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: none; /* remove seta padrão em alguns navegadores */
+}
+
+.input-with-symbol select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}
+
 
       .input-with-symbol {
     position: relative;
@@ -300,13 +321,32 @@ textarea::placeholder {
                         </div>
                     </div>
                     <div class="input-with-symbol">
-                        <input type="text" name="cpf_cnpj" placeholder="CPF ou CNPJ" required />
-                        <i class="fa-solid fa-id-card"></i>
-                    </div>
-                    <div class="input-with-symbol">
-                        <input type="text" name="area_de_atuacao" placeholder="Área de Atuação" required />
+        <input  id="cpf_cpnj"type="text" name="cpf_cnpj" placeholder="CPF ou CNPJ" required >            <i class="fa-solid fa-id-card"></i>         </div>
+                     <div class="input-with-symbol">
+                        <select name="area_de_atuacao" required>
+                            <option value="" disabled selected>Selecione a Área de Atuação</option>
+                            <option value="Administracao">Administração</option>
+                            <option value="Agronegocio">Agronegócio</option>
+                            <option value="Arquitetura">Arquitetura</option>
+                            <option value="Comunicacao">Comunicação</option>
+                            <option value="Direito">Direito</option>
+                            <option value="Educacao">Educação</option>
+                            <option value="Engenharia">Engenharia</option>
+                            <option value="Financas">Finanças</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Medicina">Medicina</option>
+                            <option value="RecursosHumanos">Recursos Humanos</option>
+                            <option value="Tecnologia">Tecnologia da Informação</option>
+                            <option value="Turismo">Turismo e Hotelaria</option>
+                            <option value="Outros">Outros</option>
+                        </select>
                         <i class="fa-solid fa-briefcase"></i>
                     </div>
+                    <div class="input-with-symbol" id="area-outros-container" style="display: none;">
+                        <input type="text" name="area_personalizada" placeholder="Informe sua área de atuação" />
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+
                     <textarea name="biografia" placeholder="Biografia" rows="4" required></textarea>
 
                     <div class="file-container">
@@ -322,12 +362,14 @@ textarea::placeholder {
             </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js "></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
     <script src="js/cadastroemp.js"></script>
+    "></script>
+    <script src="js/middleware.js"></script>
 </body>
 
 </html>
